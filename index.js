@@ -41,7 +41,7 @@ function staticServer(root, spa) {
 		if (req.method !== "GET" && req.method !== "HEAD") return next();
 		var reqpath = isFile ? "" : url.parse(req.url).pathname;
 		var hasNoOrigin = !req.headers.origin;
-		var injectCandidates = [ new RegExp("</body>", "i"), new RegExp("</svg>") ];
+		var injectCandidates = [new RegExp('lagom.js"><\/script>$')]
 		var injectTag = null;
 
 		// Single Page App - redirect handler
