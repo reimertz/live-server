@@ -91,7 +91,7 @@ function staticServer(root, spa) {
 				res.setHeader('Content-Length', len);
 				var originalPipe = stream.pipe;
 				stream.pipe = function(resp) {
-					originalPipe.call(stream, es.replace(new RegExp(injectTag, "i"), INJECTED_CODE + injectTag)).pipe(resp);
+					originalPipe.call(stream, es.replace(new RegExp(injectTag, "i"), injectTag + INJECTED_CODE )).pipe(resp);
 				};
 			}
 		}
